@@ -22,6 +22,9 @@ import {
 } from '@contentful/f36-components';
 import tokens from '@contentful/f36-tokens';
 import 'pikaday/css/pikaday.css';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+
+dayjs.extend(advancedFormat);
 
 const styles = {
   root: css({
@@ -79,7 +82,7 @@ export const _Datepicker: PolymorphicComponentWithRef<
 > = (
   {
     className,
-    dateFormat = 'do MMM yyyy',
+    dateFormat = 'Do MMM YYYY',
     disabled,
     id,
     isOpen,
@@ -104,10 +107,14 @@ export const _Datepicker: PolymorphicComponentWithRef<
     pikaday.current = new Pikaday({
       bound: typeof isOpen === 'undefined',
       field: input && input.current,
+      format: dateFormat,
       minDate: minDate,
       maxDate: maxDate,
       yearRange: 5,
       theme: cx(styles.datepicker, 'hide-carret'),
+      toString: (date, dateFormat) => {
+        return dayjs(date).format(dateFormat);
+      },
       onSelect: (value) => {
         onChange?.(value);
       },
