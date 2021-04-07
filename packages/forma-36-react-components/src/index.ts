@@ -41,6 +41,8 @@ export { List, ListItem } from '@contentful/f36-list';
 export type { ListProps, ListItemProps } from '@contentful/f36-list';
 export { HelpText } from '@contentful/f36-helptext';
 export type { HelpTextProps } from '@contentful/f36-helptext';
+export { Datepicker } from '@contentful/f36-datepicker';
+export type { DatepickerProps } from '@contentful/f36-datepicker';
 export * from './components/Accordion';
 export * from './components/Asset';
 export * from './components/Autocomplete';
