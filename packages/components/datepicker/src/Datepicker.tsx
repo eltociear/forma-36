@@ -46,7 +46,6 @@ export type DatepickerInternalProps = {
    * Date format to display the date input value with
    */
   dateFormat?: string;
-  helpText?: string;
   /**
    * Boolean to control the open state of the datepicker
    */
@@ -125,7 +124,7 @@ export const _Datepicker: PolymorphicComponentWithRef<
         pikaday.current.destroy();
       }
     };
-  }, [isOpen, minDate, maxDate, onChange]);
+  }, [dateFormat, isOpen, minDate, maxDate, onChange]);
 
   useEffect(() => {
     if (isOpen && pikaday.current) {
